@@ -56,8 +56,6 @@ module.exports = {
   validateURL,
   validateAuth,
   validateUserBody,
-  validateProfile,
-  validateProfilePic,
   validateObjectId,
   validateArticle,
 };

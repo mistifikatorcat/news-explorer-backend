@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
-const userRouter = require('./routes/usersRoute');
-const articleRouter = require('./routes/articlesRoute');
+//const usersRoute = require('./routes/usersRoute');
+//const articlesRoute = require('./routes/articlesRoute');
 const router = require('./routes');
 const auth = require('./middleware/auth');
 const handleCentralError = require('./middleware/handleCentralError');
@@ -41,8 +41,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
-userRouter.use(auth);
-articleRouter.use(auth);
+//usersRoute.use(auth);
+//articlesRoute.use(auth);
 app.use(handleCentralError);
 app.use(errorLogger);
 
