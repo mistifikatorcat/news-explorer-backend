@@ -15,7 +15,9 @@ const getAllArticles = (req, res, next) => {
 
 const createArticle = (req, res, next) => {
   // console.log('here');
-  const { keyword, title, text, date, source, link, image } = req.body;
+  const {
+    keyword, title, text, date, source, link, image,
+  } = req.body;
   const { _id } = req.user;
   Article.create({
     keyword,
@@ -65,7 +67,7 @@ const deleteArticle = (req, res, next) => {
     });
 };
 
-/*const updateLikes = (req, res, operator, next) => {
+/* const updateLikes = (req, res, operator, next) => {
   const { articleId } = req.params;
   const { _id } = req.user;
   // console.log(operator);
@@ -86,7 +88,7 @@ const deleteArticle = (req, res, next) => {
 
 const likeArticle = (req, res, next) => updateLikes(req, res, '$addToSet', next);
 
-const dislikeArticle = (req, res, next) => updateLikes(req, res, '$pull', next);*/
+const dislikeArticle = (req, res, next) => updateLikes(req, res, '$pull', next); */
 
 module.exports = {
   createArticle, deleteArticle, getAllArticles,

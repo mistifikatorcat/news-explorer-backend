@@ -18,7 +18,7 @@ const validateAuth = celebrate({
 
 const validateUserBody = celebrate({
   body: Joi.object().keys({
-    // name: Joi.string().required().min(2).max(30),
+    name: Joi.string().required().min(2).max(30),
     // about: Joi.string().required().min(2).max(30),
     // avatar: Joi.string().required().custom(validateURL),
     email: Joi.string().required().email(),
@@ -26,10 +26,9 @@ const validateUserBody = celebrate({
   }),
 });
 
-
 const validateObjectId = celebrate({
   params: Joi.object().keys({
-    cardId: Joi.string()
+    articleId: Joi.string()
       .required()
       .custom((value, helpers) => {
         if (ObjectId.isValid(value)) {
@@ -48,7 +47,7 @@ const validateArticle = celebrate({
     date: Joi.string().required().min(2).max(30),
     source: Joi.string().required().min(2).max(30),
     link: Joi.string().required().custom(validateURL),
-    image: Joi.string().required().custom(validateURL)
+    image: Joi.string().required().custom(validateURL),
   }),
 });
 

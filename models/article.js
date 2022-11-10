@@ -4,23 +4,23 @@ const validator = require('validator');
 const articleSchema = new mongoose.Schema({
   keyword: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   text: {
     type: String,
-    required: true
+    required: true,
   },
   source: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
-    type: Date, //string?
-    required: true
+    type: Date, // string?
+    required: true,
   },
   link: {
     type: String,
@@ -47,6 +47,6 @@ const articleSchema = new mongoose.Schema({
     required: true,
     ref: 'user',
   },
-})
+});
 
 module.exports = mongoose.model('article', articleSchema);

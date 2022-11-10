@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const {validateArticle, validateObjectId} = require('../middleware/validation');
+const { validateArticle, validateObjectId } = require('../middleware/validation');
 const { getAllArticles, createArticle, deleteArticle } = require('../controllers/articles');
 
 router.get('/', getAllArticles);
