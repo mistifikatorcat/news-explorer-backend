@@ -4,7 +4,8 @@ const Forbidden = require('../errors/Forbidden');
 const BadReq = require('../errors/BadReq');
 
 const getAllArticles = (req, res, next) => {
-  Article.find({})
+  const owner = req.user._id;
+  Article.find({owner})
     .then((article) => {
       // console.log('getAllArticles on Articles controller');
       // console.log(Articles);
@@ -54,7 +55,7 @@ const deleteArticle = (req, res, next) => {
       throw new NotFound('Article is not found');
     })
     .then((article) => {
-      if (article.owner.toString() !== req.user._id) {
+      if (article.owner.equals() !== req.user._id) {
         next(new Forbidden("You can't delete someone else's Article"));
       } else {
         article.findByIdAndRemove(articleId)
