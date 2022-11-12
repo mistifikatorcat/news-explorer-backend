@@ -19,7 +19,7 @@ const createArticle = (req, res, next) => {
   const {
     keyword, title, text, date, source, link, image,
   } = req.body;
-  const { _id } = req.user;
+  const id = req.user._id;
   Article.create({
     keyword,
     title,
@@ -28,7 +28,7 @@ const createArticle = (req, res, next) => {
     source,
     link,
     image,
-    owner: _id,
+    owner: id,
   })
     .then((article) => {
       // console.log(Article);
@@ -49,16 +49,16 @@ const createArticle = (req, res, next) => {
 };
 
 const deleteArticle = (req, res, next) => {
-  const { articleId } = req.params;
-  Article.findById(articleId)
+  const { _id } = req.params;
+  Article.findById(_id)
     .orFail(() => {
       throw new NotFound('Article is not found');
     })
     .then((article) => {
-      if (article.owner.equals() !== req.user._id) {
+      if (!article.owner.equals(req.user._id)) {
         next(new Forbidden("You can't delete someone else's Article"));
       } else {
-        article.findByIdAndRemove(articleId)
+        Article.findByIdAndRemove(_id)
           .then((article) => res.status(200).send(article));
       }
     })

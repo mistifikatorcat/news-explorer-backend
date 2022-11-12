@@ -5,6 +5,6 @@ const { getAllArticles, createArticle, deleteArticle } = require('../controllers
 
 router.get('/', getAllArticles);
 router.post('/', validateArticle, createArticle);
-router.delete('/:articleId', validateObjectId, deleteArticle);
+router.delete('/:_id', validateObjectId, deleteArticle);
 
 module.exports = router;

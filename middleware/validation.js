@@ -28,7 +28,7 @@ const validateUserBody = celebrate({
 
 const validateObjectId = celebrate({
   params: Joi.object().keys({
-    articleId: Joi.string()
+    _id: Joi.string()
       .required()
       .custom((value, helpers) => {
         if (ObjectId.isValid(value)) {
