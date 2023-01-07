@@ -27,8 +27,8 @@ app.options('*', cors()); // enable requests for all routes
 const allowedOrigins = [
 
   'http://localhost:3000',
-  'https://api.articlemonkeys.students.nomoredomainssbs.ru',
-  'http://articlemonkeys.students.nomoredomainssbs.ru',
+  'https://api.newsxplorerdevgrafov.students.nomoredomainssbs.ru',
+  'http://newsxplorerdevgrafov.students.nomoredomainssbs.ru',
 ];
 
 app.use(cors({ origin: allowedOrigins }));
