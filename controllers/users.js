@@ -34,7 +34,7 @@ const getCurrentUser = (req, res, next) => {
 
 const createUser = (req, res, next) => {
   const {
-    username, email, password,
+    email, password, username
   } = req.body;
   User.findOne({ email })
     .then((user) => {
@@ -43,11 +43,11 @@ const createUser = (req, res, next) => {
       }
       return bcrypt.hash(password, 10);
     })
-    .then((hash) => User.create({ username, email, password: hash }))
+    .then((hash) => User.create({ email, password: hash, username }))
     .then(console.log('user created'))
     .then((user) => {
       res.status(201).send({
-        username: user.username, email: user.email,
+        email: user.email, username: user.username
       });
     })
     .catch((err) => {
