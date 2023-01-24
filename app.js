@@ -26,7 +26,7 @@ app.options('*', cors()); // enable requests for all routes
 
 const allowedOrigins = [
 
-  'http://localhost:3000',
+  'http://localhost:3001',
   'https://api.newsxplorerdevgrafov.students.nomoredomainssbs.ru',
   'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru',
 ];
