@@ -28,7 +28,7 @@ const allowedOrigins = [
 
   'http://localhost:3000',
   'https://api.newsxplorerdevgrafov.students.nomoredomainssbs.ru',
-  'http://newsxplorerdevgrafov.students.nomoredomainssbs.ru',
+  'https://newsxplorerdevgrafov.students.nomoredomainssbs.ru',
 ];
 
 app.use(cors({ origin: allowedOrigins }));
